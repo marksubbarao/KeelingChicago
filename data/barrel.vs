@@ -1,5 +1,4 @@
-attribute vec3 uv_vertexAttrib;
-attribute vec2 uv_texCoordAttrib0;
+in vec3 vertex;
 uniform vec4 uv_cameraPos;
 uniform mat4 uv_modelViewInverseMatrix;
 uniform mat4 uv_modelViewProjectionMatrix;
@@ -7,7 +6,9 @@ uniform mat4 uv_scene2ObjectMatrix;
 uniform float Scale;
 uniform vec3 RotationAxis;
 uniform float RotationAngle;
-
+in float year;
+in float month;
+out float dataDate;
 const float PI = 3.1415926535897932384626433;
 const float DEG2PI = PI / 180.0;
 
@@ -32,7 +33,14 @@ void main()
   //float cameraDistance = length((uv_modelViewInverseMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz) / Scale; 
   //DistanceFade = smoothstep(1, 0, cameraDistance);  
   vec3 center =   (uv_scene2ObjectMatrix * uv_cameraPos).xyz;
+  float r = 15;
+  float z_off=0;
+  float z_scale=10;
+  float x = r*cos(vertex[0]);
+  float y = r*sin(vertex[0]);
+  float z = z_scale*vertex[1]+z_off;
+  vec3 pos = 0.01*vec3(x,z,y);
   //Rotate the sphere the specified angle about the specified axis
-  gl_Position = uv_modelViewProjectionMatrix *(Scale *(getRotationMatrix(RotationAxis, RotationAngle)*vec4(uv_vertexAttrib,0.0))+vec4(center, 1.0));    		  
-  
+  gl_Position = uv_modelViewProjectionMatrix *(Scale *(getRotationMatrix(RotationAxis, RotationAngle)*vec4(pos,0.0))+vec4(center, 1.0));    		  
+  dataDate=year+(month-1)/12.;
 }

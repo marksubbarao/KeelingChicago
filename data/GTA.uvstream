@@ -4,7 +4,7 @@
     <DataBindings>
         <Variable>
             <Name>vertex</Name>         
-            <Type>vec3f</Type>
+            <Type>vec2f</Type>
         </Variable>
         <Variable>
             <Name>year</Name>         
@@ -24,16 +24,16 @@
         <Path>GLB.Ts.UV.csv</Path>
         <Headers>
             <Variable>              
-                <Cols>0,1,2</Cols>
+                <Cols>0,1</Cols>
             </Variable>
+            <Variable>              
+                <Cols>2</Cols>
+            </Variable>                     
             <Variable>              
                 <Cols>3</Cols>
             </Variable>                     
             <Variable>              
                 <Cols>4</Cols>
-            </Variable>                     
-            <Variable>              
-                <Cols>5</Cols>
             </Variable>                     
          </Headers>
     </CSVData>
