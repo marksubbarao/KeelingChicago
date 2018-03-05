@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DataStream version="0.1">
+    <PrimitiveType>line_strip</PrimitiveType>
+    <DataBindings>
+        <Variable>
+            <Name>vertex</Name>         
+            <Type>vec3f</Type>
+        </Variable>
+        <Variable>
+            <Name>year</Name>         
+            <Type>float</Type>
+        </Variable>             
+        <Variable>
+            <Name>month</Name>         
+            <Type>float</Type>
+        </Variable>             
+        <Variable>
+            <Name>dT</Name>         
+            <Type>float</Type>
+        </Variable>             
+    </DataBindings>
+
+    <CSVData>
+        <Path>GLB.Ts.UV.csv</Path>
+        <Headers>
+            <Variable>              
+                <Cols>0,1,2</Cols>
+            </Variable>
+            <Variable>              
+                <Cols>3</Cols>
+            </Variable>                     
+            <Variable>              
+                <Cols>4</Cols>
+            </Variable>                     
+            <Variable>              
+                <Cols>5</Cols>
+            </Variable>                     
+         </Headers>
+    </CSVData>
+</DataStream>  
